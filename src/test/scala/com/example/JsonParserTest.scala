@@ -51,10 +51,13 @@ class JsonParserTest extends SpecificationWithJUnit {
     "generate an empty json object inside the json object" in new Context {
       Parser.parseJsonObject("{a:{b:5}}") must_== JsonObject(Map("a" -> JsonObject(Map("b" -> JsonNumber(5)))))
     }
+//    "generate an empty json object inside the json object" in new Context {
+//      Parser.parseJsonObject("{a:{b:5,c:\"seven\"}}") must_== JsonObject(Map("a" -> JsonObject(Map("b" -> JsonNumber(5), "c" -> JsonString("seven")))))
+//    }
 
-    //    "generate an array with one int one and string items" in new Context {
-    //      Parser.parseJsonObject("{a:[6, \"f\"]}") must_== JsonObject(Map("a" -> JsonArray(JsonNumber(6),JsonString("f"))))
-    // }
+        "generate an array with one int one and string items" in new Context {
+          Parser.parseJsonObject("{a:[6, \"f\"]}") must_== JsonObject(Map("a" -> JsonArray(JsonNumber(6),JsonString("f"))))
+    }
   }
 
 
