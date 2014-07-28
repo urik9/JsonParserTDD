@@ -1,10 +1,14 @@
-val sample: String = "sheeeit: Crap"
+import java.io.{StringReader, BufferedReader, StreamTokenizer}
 
-def twoparts = {
-  var sx = sample.split(":")
-  var s1 = sx(0)
-  var s2 =sx(1)
+class streamer {
+  val json: String = "{a:3}"
 
+
+
+  def main (args: Array[String]) {
+    val stDemo: StreamTokenizer = new StreamTokenizer(new BufferedReader(new StringReader(json)))
+    while(stDemo.nextToken()!= StreamTokenizer.TT_EOF) {
+      println(stDemo.nextToken())
+    }
+  }
 }
-
-Array.empty
